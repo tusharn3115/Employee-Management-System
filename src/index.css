@@ -8,6 +8,7 @@
   box-sizing: border-box;
   font-family: "NB International Pro";
   color: #fff;
+  scrollbar-width: thin;
 }
 
 html,
