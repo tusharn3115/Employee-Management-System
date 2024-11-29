@@ -1,10 +1,14 @@
 import React from 'react'
-import Header from '../Layout/Header'
+import AdminHeader from '../Layout/AdminHeader'
+import CreateTask from '../Layout/CreateTask';
+import AllTasks from '../Layout/AllTasks';
 
 const AdminDashboard = () => {
   return (
-    <div className='p-20 bg-[#1c1c1c] h-screen'>
-        <Header />
+    <div className='p-16 w-full'>
+      <AdminHeader />
+      <CreateTask />
+      <AllTasks /> 
     </div>
   )
 }
