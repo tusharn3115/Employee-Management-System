@@ -2,7 +2,7 @@ const employees = [
     {
         id: 1,
         name: "Rahul",
-        email: "employee1@gmail.com",
+        email: "e1@gmail.com",
         password: "12345",
         taskCount: {
             completed: 1,
@@ -11,42 +11,13 @@ const employees = [
             failed: 0,
         },
         tasks: [
-            {
-                title: "Prepare Presentation",
-                description: "Create slides for the upcoming client meeting.",
-                date: "2024-12-01",
-                category: "Work",
-                active: true,
-                newTask: false,
-                completed: false,
-                failed: false,
-            },
-            {
-                title: "Team Meeting",
-                description: "Discuss progress with the team on project tasks.",
-                date: "2024-12-02",
-                category: "Meeting",
-                active: true,
-                newTask: true,
-                completed: false,
-                failed: false,
-            },
-            {
-                title: "Submit Report",
-                description: "Submit the weekly report to the manager.",
-                date: "2024-12-03",
-                category: "Work",
-                active: false,
-                newTask: false,
-                completed: true,
-                failed: false,
-            },
+            
         ],
     },
     {
         id: 2,
         name: "Priya",
-        email: "employee2@gmail.com",
+        email: "e2@gmail.com",
         password: "12345",
         taskCount: {
             completed: 1,
@@ -80,7 +51,7 @@ const employees = [
     {
         id: 3,
         name: "Aarav",
-        email: "employee3@gmail.com",
+        email: "e3@gmail.com",
         password: "12345",
         taskCount: {
             completed: 1,
@@ -124,7 +95,7 @@ const employees = [
     {
         id: 4,
         name: "Sneha",
-        email: "employee4@gmail.com",
+        email: "e4@gmail.com",
         password: "12345",
         taskCount: {
             completed: 1,
@@ -158,7 +129,7 @@ const employees = [
     {
         id: 5,
         name: "Rohit",
-        email: "employee5@gmail.com",
+        email: "e5@gmail.com",
         password: "12345",
         taskCount: {
             completed: 1,

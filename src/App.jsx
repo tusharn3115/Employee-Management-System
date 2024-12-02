@@ -14,14 +14,14 @@ const App = () => {
 
 
   // we are using this to know who is logged in and for example if admin is logged in the admin dashboard will not dissapear as it does when we reload the page, at by doing this it won't dissapear until we click the logout button
-  // useEffect(() => {
-  //   if (authData) {
-  //     const loggedInUser = localStorage.getItem("loggedInUser")
-  //     if (loggedInUser) {
-  //       setUser(loggedInUser.role)
-  //     }
-  //   }
-  // }, [authData])
+  useEffect(() => {
+    if (authData) {
+      const loggedInUser = localStorage.getItem("loggedInUser")
+      if (loggedInUser) {
+        setUser(loggedInUser.role)
+      }
+    }
+  }, [authData])
 
 
 
