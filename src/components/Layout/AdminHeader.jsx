@@ -1,9 +1,9 @@
 import React from "react";
 
-const Header = ({ data }) => {
+const Header = (props) => {
   const logOutUser = () => {
     localStorage.setItem("loggedInUser", "");
-    window.location.reload();
+    props.userLogout('')
   };
 
   return (

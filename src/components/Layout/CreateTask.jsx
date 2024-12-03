@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaCircleArrowRight } from 'react-icons/fa6';
 import { IoIosCheckmarkCircle } from 'react-icons/io';
 
 const CreateTask = () => {
 
+  const [taskTitle, setTaskTitle] = useState('')
+  const [taskDescription, setTaskDescription] = useState('')
+  const [taskDate, setTaskDate] = useState('')
+  const [assignTo, setAssignTo] = useState('')
+  const [category, setCategory] = useState('')
+
+  const [task, setTask] = useState({})
+
   const submitHandler = (e) => {
     e.preventDefault();
+    setTask({taskTitle, taskDate, category, taskDescription, active: false, newTask: true, failed: false, completed: false})
   };
 
   return (
@@ -21,6 +30,10 @@ const CreateTask = () => {
               Task Title
             </label>
             <input
+              autoComplete='off'
+              required
+              value={taskTitle}
+              onChange={(e) => setTaskTitle(e.target.value)}
               type="text"
               id="taskTitle"
               className="w-full py-3 px-4 text-white bg-transparent border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -32,6 +45,10 @@ const CreateTask = () => {
               Due Date
             </label>
             <input
+              autoComplete='off'
+              required
+              value={taskDate}
+              onChange={(e) => setTaskDate(e.target.value)}
               type="date"
               id="dueDate"
               className="w-full py-3 px-4 text-black  border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-auto"
@@ -42,6 +59,10 @@ const CreateTask = () => {
               Assign To
             </label>
             <input
+              autoComplete='off'
+              required
+              value={assignTo}
+              onChange={(e) => setAssignTo(e.target.value)}
               type="text"
               id="assignTo"
               className="w-full py-3 px-4 text-white bg-transparent border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -53,6 +74,10 @@ const CreateTask = () => {
               Category
             </label>
             <input
+              autoComplete='off'
+              required
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
               type="text"
               id="category"
               className="w-full py-3 px-4 text-white bg-transparent border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -67,6 +92,8 @@ const CreateTask = () => {
               Description
             </label>
             <textarea
+              value={taskDescription}
+              onChange={(e) => setTaskDescription(e.target.value)}
               name="desc"
               id="desc"
               className="w-full h-60 py-3 px-4 text-white bg-transparent border border-gray-400 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"

@@ -1,9 +1,9 @@
 import React from "react";
 
-const Header = ({ data }) => {
+const Header = (props) => {
   const logOutUser = () => {
     localStorage.setItem("loggedInUser", "");
-    window.location.reload();
+    props.userLogout('')
   };
 
   return (
@@ -14,7 +14,7 @@ const Header = ({ data }) => {
           Hello, Welcome !
         </h1>
         <h2 className="text-4xl font-bold text-white mt-2">
-          {data.name}
+          {props.data.name}
           <span className="text-blue-300 ml-2">👋</span>
         </h2>
       </div>

@@ -10,7 +10,6 @@ import { AuthContext } from "./context/AuthProvider";
 const App = () => {
   const [user, setUser] = useState(null);
   const [loggedInUserData, setLoggedInUserData] = useState(null);
-  const [loading, setLoading] = useState(true); // New loading state
   const authData = useContext(AuthContext);
 
   useEffect(() => {
@@ -21,7 +20,6 @@ const App = () => {
       setUser({ role: userData.role });
       setLoggedInUserData(userData.data || null);
     }
-    setLoading(false);
   }, []);
 
   const handleLogin = (email, password) => {
@@ -35,7 +33,7 @@ const App = () => {
       );
       if (employee) {
         const employeeUser = { role: "employee", data: employee };
-        setUser({ role: "employee" });
+        setUser(employeeUser);
         setLoggedInUserData(employee);
         localStorage.setItem("loggedInUser", JSON.stringify(employeeUser));
       } else {
@@ -59,18 +57,13 @@ const App = () => {
     });
   };
 
-  if (loading) {
-    // Optionally show a loading spinner while checking localStorage
-    return <div>Loading...</div>;
-  }
-
   return (
     <>
       <ToastContainer />
       {!user && <Login handleLogin={handleLogin} />}
-      {user?.role === "admin" && <AdminDashboard />}
+      {user?.role === "admin" && <AdminDashboard userLogout={setUser} />}
       {user?.role === "employee" && (
-        <EmployeeDashboard data={loggedInUserData} />
+        <EmployeeDashboard userLogout={setUser} data={loggedInUserData} />
       )}
     </>
   );
