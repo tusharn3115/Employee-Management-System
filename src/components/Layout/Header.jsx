@@ -1,12 +1,33 @@
-import React from 'react'
+import React from "react";
 
 const Header = ({ data }) => {
-  return (
-    <div className='flex items-end justify-between text-white'>
-        <h1 className='text-3xl font-medium'>Hey Welcome <br /> <span className='text-5xl font-bold'>{data.name}👋</span></h1>
-        <button className='bg-red-600 text-xl rounded px-5 py-2 font-medium active:scale-90 duration-150'>Log Out</button>
-    </div>
-  )
-}
+  const logOutUser = () => {
+    localStorage.setItem("loggedInUser", "");
+    window.location.reload();
+  };
 
-export default Header
+  return (
+    <div className="flex items-center justify-between p-6 bg-blue-600 rounded-lg shadow-xl">
+      {/* Welcome Section */}
+      <div className="flex flex-col">
+        <h1 className="text-2xl font-semibold text-white">
+          Hello, Welcome !
+        </h1>
+        <h2 className="text-4xl font-bold text-white mt-2">
+          {data.name}
+          <span className="text-blue-300 ml-2">👋</span>
+        </h2>
+      </div>
+
+      {/* Logout Button */}
+      <button
+        onClick={logOutUser}
+        className="bg-red-600 text-lg text-white font-medium px-6 py-3 rounded-full hover:bg-red-700 transition duration-300 ease-in-out"
+      >
+        Log Out
+      </button>
+    </div>
+  );
+};
+
+export default Header;

@@ -1,19 +1,32 @@
-import React from 'react'
+import React from "react";
 
-const NewTask = () => {
+const NewTask = ({ data }) => {
   return (
-    <div className='h-full w-[327px] p-5 flex-shrink-0 bg-slate-800 rounded-xl'>
-            <div className='flex justify-between items-center'>
-                <h3 className='px-3 py-1 text-base font-medium rounded bg-slate-500'>Task 1</h3>
-                <h4 className='text-sm font-medium'>28 Nov 2024</h4>
-            </div>
-            <h2 className='mt-5 text-2xl font-medium'>Complete the react topics</h2>
-            <p className='text-sm mt-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem velit enim ducimus, accusamus possimus voluptatibus.</p>
-            <div className='flex justify-between mt-9 text-white'>
-                <button className='bg-blue-500 py-1 px-2 text-sm rounded-md active:scale-95 duration-200'>Accept Task</button>
-            </div>
-        </div>
-  )
-}
+    <div className="w-[350px] p-6 bg-slate-800 rounded-2xl shadow-lg flex flex-col justify-between text-white">
+      {/* Category and Date */}
+      <div className="flex justify-between items-center">
+        <span className="text-sm font-semibold px-3 py-1 rounded-full bg-blue-600">
+          {data.category}
+        </span>
+        <span className="text-xs font-medium text-gray-300">{data.date}</span>
+      </div>
 
-export default NewTask
+      {/* Title */}
+      <h2 className="mt-4 text-xl font-bold text-gray-100">{data.title}</h2>
+
+      {/* Description */}
+      <p className="mt-3 text-sm text-gray-400 leading-relaxed">
+        {data.description}
+      </p>
+
+      {/* Accept Task Button */}
+      <div className="mt-6">
+        <button className="w-full py-2 bg-blue-700 rounded-lg font-medium text-sm hover:bg-blue-600 active:scale-95 transition duration-150">
+          ✔️ Accept Task
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default NewTask;

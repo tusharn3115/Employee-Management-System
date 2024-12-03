@@ -1,42 +1,89 @@
-import React from 'react'
-import { FaCircleArrowRight } from "react-icons/fa6";
+import React from 'react';
+import { FaCircleArrowRight } from 'react-icons/fa6';
 import { IoIosCheckmarkCircle } from 'react-icons/io';
 
 const CreateTask = () => {
-    return (
-        <div className='mx-8 mt-8 bg-[#1c1c1c] rounded p-5'>
-            <h1
-                className='flex pl-9 text-white flex-wrap items-center gap-3 font-semibold text-3xl'>
-                <FaCircleArrowRight className='text-xl' />
-                Create Task
-            </h1>
-            <form className='flex w-full items-start justify-between p-6'>
-                <div className='w-1/2'>
-                    <div>
-                        <h3 className='text-lg font-medium text-gray-300 mb-1'>Task Title</h3>
-                        <input type="text" className='text-sm mb-4 text-white py-2 px-2 w-4/5 rounded outline-none bg-transparent border border-gray-400' placeholder='Make a website...' />
-                    </div>
-                    <div>
-                        <h3 className='text-lg font-medium text-gray-300 mb-1'>Due Date</h3>
-                        <input type="date" className='text-sm mb-4 text-white py-2 px-2 w-4/5 rounded outline-none bg-transparent border border-gray-400' name="date" id="date" />
-                    </div>
-                    <div>
-                        <h3 className='text-lg font-medium text-gray-300 mb-1'>Asign To</h3>
-                        <input type="text" className='text-sm mb-4 text-white py-2 px-2 w-4/5 rounded outline-none bg-transparent border border-gray-400' placeholder='Employee name...' />
-                    </div>
-                    <div>
-                        <h3 className='text-lg font-medium text-gray-300 mb-1'>Category</h3>
-                        <input type="text" className='text-sm mb-4 text-white py-2 px-2 w-4/5 rounded outline-none bg-transparent border border-gray-400' placeholder='Website, Ui/Ux design, etc...' />
-                    </div>
-                </div>
-                <div className='w-2/5 flex flex-col items-start'>
-                    <h3 className='text-lg text-gray-300 mb-1'>Description</h3>
-                    <textarea name="desc" id="desc" className='w-full rounded resize-none h-60 text-white text-sm py-2 px-4 bg-transparent border border-gray-400' placeholder='Detailed description of the task (Max 500 words)' />
-                    <button className='flex items-center justify-center text-white py-2 px-4 bg-emerald-600 hover:bg-emerald-800 rounded text-lg font-medium mt-4 w-full active:scale-90 duration-150 gap-2'>Create Task <IoIosCheckmarkCircle className='text-2xl' /></button>
-                </div>
-            </form>
-        </div>
-    )
-}
 
-export default CreateTask
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
+
+  return (
+    <div className="mt-8 bg-[#1c1c1c] rounded-lg shadow-lg p-6">
+      <h1 className="flex pl-9 text-white items-center gap-3 font-semibold text-3xl">
+        <FaCircleArrowRight className="text-xl" />
+        Create Task
+      </h1>
+      <form onSubmit={submitHandler} className="w-full flex flex-col lg:flex-row items-start justify-between gap-6 mt-6">
+        <div className="w-full lg:w-1/2 space-y-4">
+          <div>
+            <label htmlFor="taskTitle" className="text-sm font-medium text-gray-300 mb-1 block">
+              Task Title
+            </label>
+            <input
+              type="text"
+              id="taskTitle"
+              className="w-full py-3 px-4 text-white bg-transparent border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Make a website..."
+            />
+          </div>
+          <div>
+            <label htmlFor="dueDate" className="text-sm font-medium text-gray-300 mb-1 block">
+              Due Date
+            </label>
+            <input
+              type="date"
+              id="dueDate"
+              className="w-full py-3 px-4 text-black  border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-auto"
+            />
+          </div>
+          <div>
+            <label htmlFor="assignTo" className="text-sm font-medium text-gray-300 mb-1 block">
+              Assign To
+            </label>
+            <input
+              type="text"
+              id="assignTo"
+              className="w-full py-3 px-4 text-white bg-transparent border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Employee name..."
+            />
+          </div>
+          <div>
+            <label htmlFor="category" className="text-sm font-medium text-gray-300 mb-1 block">
+              Category
+            </label>
+            <input
+              type="text"
+              id="category"
+              className="w-full py-3 px-4 text-white bg-transparent border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Website, UI/UX design, etc..."
+            />
+          </div>
+        </div>
+
+        <div className="w-full lg:w-2/5 flex flex-col space-y-4">
+          <div>
+            <label htmlFor="desc" className="text-sm font-medium text-gray-300 mb-1 block">
+              Description
+            </label>
+            <textarea
+              name="desc"
+              id="desc"
+              className="w-full h-60 py-3 px-4 text-white bg-transparent border border-gray-400 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Detailed description of the task (Max 500 words)"
+            />
+          </div>
+          <button
+            type="submit"
+            className="flex items-center justify-center w-full py-3 px-6 bg-emerald-600 text-white text-lg font-medium rounded-lg hover:bg-emerald-800 transition duration-200 ease-in-out gap-2"
+          >
+            Create Task <IoIosCheckmarkCircle className="text-2xl" />
+          </button>
+        </div>
+      </form>
+
+    </div>
+  );
+};
+
+export default CreateTask;

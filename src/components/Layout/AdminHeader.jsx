@@ -1,12 +1,33 @@
-import React from 'react'
+import React from "react";
 
-const AdminHeader = () => {
+const Header = ({ data }) => {
+  const logOutUser = () => {
+    localStorage.setItem("loggedInUser", "");
+    window.location.reload();
+  };
+
   return (
-    <div className='flex items-end justify-between text-white'>
-        <h1 className='text-3xl font-medium'>Welcome Back <br /> <span className='text-5xl font-bold'>Admin🫡</span></h1>
-        <button className='bg-red-600 text-xl text-white rounded px-5 py-2 font-semibold active:scale-90 duration-150'>Log Out</button>
-    </div>
-  )
-}
+    <div className="flex items-center justify-between p-6 bg-blue-600 rounded-lg shadow-xl">
+      {/* Welcome Section */}
+      <div className="flex flex-col">
+        <h1 className="text-2xl font-semibold text-white">
+          Hello, Welcome Back!
+        </h1>
+        <h2 className="text-4xl font-bold text-white mt-2">
+          Admin
+          <span className="text-blue-300 ml-2">🫡</span>
+        </h2>
+      </div>
 
-export default AdminHeader
+      {/* Logout Button */}
+      <button
+        onClick={logOutUser}
+        className="bg-red-600 text-lg text-white font-medium px-6 py-3 rounded-full hover:bg-red-700 transition duration-300 ease-in-out"
+      >
+        Log Out
+      </button>
+    </div>
+  );
+};
+
+export default Header;

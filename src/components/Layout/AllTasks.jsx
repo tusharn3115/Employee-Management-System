@@ -1,35 +1,37 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { AuthContext } from '../../context/AuthProvider';
 
 const AllTasks = () => {
-    return (
-        <div className='bg-[#1c1c1c] rounded p-5 mx-8 mt-7 h-52 overflow-auto'>
-            <div className='bg-red-500 py-3 mb-2 px-4 flex justify-between rounded text-white'>
-                <h2>Tushar</h2>
-                <h3>Make a UI Design for the website</h3>
-                <h5>Status</h5>
-            </div>
-            <div className='bg-green-500 mb-2 py-3 px-4 flex justify-between rounded text-white'>
-                <h2>Tushar</h2>
-                <h3>Make a UI Design for the website</h3>
-                <h5>Status</h5>
-            </div>
-            <div className='bg-yellow-500 mb-2 py-3 px-4 flex justify-between rounded text-white'>
-                <h2>Tushar</h2>
-                <h3>Make a UI Design for the website</h3>
-                <h5>Status</h5>
-            </div>
-            <div className='bg-purple-500 mb-2 py-3 px-4 flex justify-between rounded text-white'>
-                <h2>Tushar</h2>
-                <h3>Make a UI Design for the website</h3>
-                <h5>Status</h5>
-            </div>
-            <div className='bg-cyan-500 mb-2 py-3 px-4 flex justify-between rounded text-white'>
-                <h2>Tushar</h2>
-                <h3>Make a UI Design for the website</h3>
-                <h5>Status</h5>
-            </div>
-        </div>
-    )
-}
+  const authData = useContext(AuthContext);
 
-export default AllTasks
+  return (
+    <div className="mt-7 text-center bg-gray-900 rounded-lg p-6 shadow-md">
+      {/* Header Section */}
+      <div className="bg-gray-800 capitalize py-3 px-4 flex justify-between rounded-lg mb-4 text-white">
+        <h2 className="w-1/5 font-semibold">Employee Name</h2>
+        <h3 className="w-1/5 font-semibold">New Task</h3>
+        <h5 className="w-1/5 font-semibold">Active</h5>
+        <h5 className="w-1/5 font-semibold">Completed</h5>
+        <h5 className="w-1/5 font-semibold">Failed</h5>
+      </div>
+
+      {/* Employee Data Section */}
+      <div>
+        {authData.employees.map((elem, index) => (
+          <div
+            key={index}
+            className="flex text-center justify-between items-center bg-gray-800 py-3 px-4 rounded-lg text-white mb-3"
+          >
+            <h2 className="w-1/5 text-lg font-medium">{elem.name}</h2>
+            <h3 className="w-1/5 text-lg font-medium text-blue-400">{elem.taskCount.newTask}</h3>
+            <h5 className="w-1/5 text-lg font-medium text-yellow-400">{elem.taskCount.active}</h5>
+            <h5 className="w-1/5 text-lg font-medium text-green-400">{elem.taskCount.completed}</h5>
+            <h5 className="w-1/5 text-lg font-medium text-red-400">{elem.taskCount.failed}</h5>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default AllTasks;

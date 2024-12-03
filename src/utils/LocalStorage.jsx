@@ -7,11 +7,40 @@ const employees = [
         taskCount: {
             completed: 1,
             active: 2,
-            newTask: 1,
+            newTask: 3,
             failed: 0,
         },
         tasks: [
-            
+            {
+                title: "Prepare Presentation",
+                description: "Create slides for the upcoming client meeting.",
+                date: "2024-12-01",
+                category: "Work",
+                active: true,
+                newTask: false,
+                completed: false,
+                failed: false,
+            },
+            {
+                title: "Team Meeting",
+                description: "Discuss progress with the team on project tasks.",
+                date: "2024-12-02",
+                category: "Meeting",
+                active: true,
+                newTask: true,
+                completed: false,
+                failed: false,
+            },
+            {
+                title: "Submit Report",
+                description: "Submit the weekly report to the manager.",
+                date: "2024-12-03",
+                category: "Work",
+                active: false,
+                newTask: false,
+                completed: true,
+                failed: false,
+            },
         ],
     },
     {
@@ -22,7 +51,7 @@ const employees = [
         taskCount: {
             completed: 1,
             active: 1,
-            newTask: 1,
+            newTask: 5,
             failed: 0,
         },
         tasks: [
